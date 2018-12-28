@@ -32,9 +32,10 @@ class Solution:
     designed by yourself, and deserialize it here as you serialize it in
     "serialize" method.
     """
+    # this class variable remembers the index of the first unvisited node
     data_string = 0
-    def deserialize(self, data):
 
+    def deserialize(self, data):
         if type(data) == str:
             data = data.split(",")
 
@@ -49,7 +50,6 @@ class Solution:
             n.right = self.deserialize(self.data_string)
 
         return n
-
 
 
 root = TreeNode(0)
