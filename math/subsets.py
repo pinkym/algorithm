@@ -11,9 +11,7 @@ class Solution:
         subsets_list = []
         for subset in self.subsets_recursive(nums[:-1]):
             if not len(subset) == 0:
-                subset_cp = subset.copy()
-                subset_cp.append(nums[-1])
-                subsets_list.append(sorted(subset_cp))
+                subsets_list.append(sorted(subset + [nums[-1]]))
         subsets_list.append([nums[-1]])
 
         return subsets_list + self.subsets_recursive(nums[:-1])
@@ -28,9 +26,7 @@ class Solution:
             subsets_list = []
             for subset in subsets:
                 if not subset == []:
-                    subset_cp = subset.copy()
-                    subset_cp.append(nums[i])
-                    subsets_list.append(sorted(subset_cp))
+                    subsets_list.append(sorted(subset + [nums[i]]))
             subsets_list.append([nums[i]])
             subsets += subsets_list
             i += 1
@@ -46,3 +42,4 @@ if __name__ == '__main__':
 
     print(s.subsets_recursive(data))
     print(len(s.subsets_recursive(data)))
+
